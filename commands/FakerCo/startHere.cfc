@@ -37,7 +37,8 @@ component {
         //Run “install” to install dependencies
         runInstall();
        //Start/stop Servers
-        command("fakerCo deploy startAndStopEachServer");
+        print.line("Restarting each server");
+        command("fakerCo deploy restartEachServer");
         //Import settings
         //Specific Settings
         command("fakerCo deploy deployMainSiteSettings").run();
