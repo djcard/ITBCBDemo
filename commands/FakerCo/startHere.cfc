@@ -10,19 +10,23 @@ component {
         confirm(message="To Start press any key: ",defaultResponse="Y");
         print.line("ok, let's get started");
 
-        //Install dependencies
-        installDependencies();
-
         //Ask for the Settings and Create Folder Structure
         askForSettings();
+
+        //Install dependencies
+        installDependencies();
 
         sleep(2000);
         print.line("The various sites will be set up here:");
         print.line("");
-            command("config show modules.fakerco.sitepaths").run();
+
+
+        /*********************/
+        command("config show modules.fakerco.sitepaths").run();
         print.line("");
 
         makeFolders();
+
 
         //Pull from repos
         pullSite();
@@ -32,11 +36,13 @@ component {
 
         //Run “install” to install dependencies
         runInstall();
-        //Start/stop Servers
+       //Start/stop Servers
 
         //Import settings
         //Specific Settings
-
+        command("fakerCo deploy deployMainSiteSettings").run();
+            command("fakerCo deploy deployRestServicesSettings").run();
+ /*        */
     }
 
 
@@ -78,8 +84,8 @@ component {
         var configSettings=ConfigService.getconfigSettings();
         configSettings.modules=structKeyExists(configSettings,"modules") ? configSettings.modules : {};
         configsettings.modules.FakerCo=structKeyExists(configSettings.modules,"FakerCo") ? configsettings.modules.FakerCo : emptyFakerCo();
-        configsettings.modules.FakerCo.sitepaths = structKeyExists(configSettings.modules.FakerCo,"sitepaths") ? configsettings.modules.FakerCo.sitepaths : {"root":"","repo":"","live":"","restservices":"","pos":"","bubbles":""} ;
-        configsettings.modules.FakerCo.adminpasswords = structKeyExists(configSettings.modules.FakerCo,"adminpasswords") ? configsettings.modules.FakerCo.adminpasswords : {"default:"",""live":"","restservices":"","pos":"","bubbles":""};
+        configsettings.modules.FakerCo.sitepaths = structKeyExists(configSettings.modules.FakerCo,"sitepaths") ? configsettings.modules.FakerCo.sitepaths : {"root":"","repo":"","mainsite":"","restservices":"","newapp":"","webapp":""} ;
+        configsettings.modules.FakerCo.adminpasswords = structKeyExists(configSettings.modules.FakerCo,"adminpasswords") ? configsettings.modules.FakerCo.adminpasswords : {"root":"","repo":"","mainsite":"","restservices":"","newapp":"","webapp":""};
         configsettings.modules.FakerCo.LocalDB = structKeyExists(configSettings.modules.FakerCo,"LocalDB") ? configsettings.modules.FakerCo.localdb : {"DBADDRESS":"","PASSWORD":"","SCHEMA":"","PORT":"","USERNAME":""};
         ConfigService.setConfigSettings(configSettings);
     }
