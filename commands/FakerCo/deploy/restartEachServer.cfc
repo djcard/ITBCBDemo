@@ -8,13 +8,23 @@ component {
     {
         configSettings=ConfigService.getconfigSettings();
         var currentdir=getcwd();
+        sitearray=["mainsite","restservices","webapp","newapp"];
 
-        command("cd #configSettings.modules.fakerco.sitepaths.mainsite#");
-        var mainSiteServerInfo=serverService.resolveServerDetails({directory:configSettings.modules.fakerCO.sitepaths.mainsite});
-        //print.line("#structkeylist(mainSiteServerInfo)#");
-        print.line("#mainSiteServerInfo.DEFAULTSERVERCONFIGFILE#");
-        command("server restart serverconfigfile=#mainSiteServerInfo.DEFAULTSERVERCONFIGFILE#").run();
+        for(var x in sitearray) {
+            command("cd #configSettings.modules.fakerco.sitepaths.mainsite#");
+            var ServerInfo = serverService.resolveServerDetails({directory:configSettings.modules.fakerCO.sitepaths[x]});
+//print.line("#structkeylist(mainSiteServerInfo)#");
 
+            if (!ServerInfo.serverisnew) {
+                print.line("restarting");
+                    command("server restart serverconfigfile=#ServerInfo.DEFAULTSERVERCONFIGFILE#").run();
+            }
+            else {
+                print.line("starting");
+                    command("server start serverconfigfile=#ServerInfo.DEFAULTSERVERCONFIGFILE#").run();
+            }
+        }
+        /*
         command("cd #configSettings.modules.fakerco.sitepaths.restservices#");
         var restservicesSiteServerInfo=serverService.resolveServerDetails({directory:configSettings.modules.fakerCO.sitepaths.restservices});
         print.line("#restservicesSiteServerInfo.DEFAULTSERVERCONFIGFILE#");
@@ -30,5 +40,6 @@ component {
         var newappSiteServerInfo=serverService.resolveServerDetails({directory:configSettings.modules.fakerCO.sitepaths.newapp});
         print.line("#newappSiteServerInfo.DEFAULTSERVERCONFIGFILE#");
             command("server restart serverconfigfile=#newappSiteServerInfo.DEFAULTSERVERCONFIGFILE#").run();
+*/
     }
 }
