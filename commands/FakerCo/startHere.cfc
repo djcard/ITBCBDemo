@@ -5,7 +5,7 @@ component {
 
     function run(){
         print.line("hello");
-        //Opening Text
+/*        //Opening Text
         showOpeningText();
         confirm(message="To Start press any key: ",defaultResponse="Y");
         print.line("ok, let's get started");
@@ -20,8 +20,6 @@ component {
         print.line("The various sites will be set up here:");
         print.line("");
 
-
-        /*********************/
         command("config show modules.fakerco.sitepaths").run();
         print.line("");
 
@@ -41,9 +39,11 @@ component {
         command("fakerCo deploy restartEachServer").run();
         //Import settings
         //Specific Settings
+        print.line("deploying main site settings");
         command("fakerCo deploy deployMainSiteSettings").run();
-            command("fakerCo deploy deployRestServicesSettings").run();
- /*        */
+        print.line("deploying restservices settings");
+        command("fakerCo deploy deployRestServicesSettings").run();
+        */
     }
 
 
