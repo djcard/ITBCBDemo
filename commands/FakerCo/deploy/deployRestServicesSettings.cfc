@@ -8,12 +8,10 @@ component {
             var fakerCOSettings = configSettings.modules.fakerCO;
             var serverInfo=serverService.resolveServerDetails({directory:configSettings.modules.fakerCO.sitepaths.mainsite});
             var currentDir=getcwd();
-                command("cd #fakerCOsettings.sitepaths.mainSite#").run();
+                command("cd #fakerCOsettings.sitepaths.restservices#").run();
 
 
             //Copy downloaded server config to live server config
-            print.line("Copying Server configuration");
-            command("cfconfig import TestSiteSettingsLive.json --pauseTasks");
             print.line("Setting robust exception on");
             command(" cfconfig set robustExceptionEnabled=true").run();
             sleep(250);
@@ -21,12 +19,12 @@ component {
             //Handled in the server.json
 
             print.line("setting live host to fakerCo.local");
-            command("server set web.host=fakerCo.local").run();
+            command("server set web.host=restservices.fakerCo.local").run();
 
 
             //Change Admin Password to local password
             print.line("Changing admin passwords");
-                command("fakerCo deploy setAdminPassword mainsite #serverInfo.defaultname#").run();
+                command("fakerCo deploy setAdminPassword restservices #serverInfo.defaultname#").run();
             sleep(250);
 
             //Remove cfcfonig from server.json so it uses the cfconfigs we set instead of the ones from the repo
@@ -37,13 +35,11 @@ component {
 
             sleep(250);
             print.line("Adding Mappings and Aliases");
-            //addMapping("sb",springboardSettings.sitepaths.repo & "/springboard/sb");
-            //addAlias("driver",springboardSettings.sitepaths.repo & "/springboard/driver");
+            addMapping("restservice",fakerCOSettings.sitepaths.repo & "/ITBFakerCoSites/restservice");
+            addAlias("restservice",fakerCOSettings.sitepaths.repo & "/ITBFakerCoSites/restservice");
             sleep(250);
 
             addDatasource();
-
-            command("install").run();
 
             var restartme=arguments.force ? arguments.force : confirm("The Server needs to restart. Restart now [y/n]?");
             if(restartme) {
