@@ -35,6 +35,7 @@ component {
 
             sleep(250);
             print.line("Adding Mappings and Aliases");
+
             addMapping("restservice",fakerCOSettings.sitepaths.repo & "/ITBFakerCoSites/restservice");
             addAlias("restservice",fakerCOSettings.sitepaths.repo & "/ITBFakerCoSites/restservice");
             sleep(250);
