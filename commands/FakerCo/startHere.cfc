@@ -5,7 +5,7 @@ component {
 
     function run(){
         print.line("hello");
-/*        //Opening Text
+        //Opening Text
         showOpeningText();
         confirm(message="To Start press any key: ",defaultResponse="Y");
         print.line("ok, let's get started");
@@ -43,7 +43,7 @@ component {
         command("fakerCo deploy deployMainSiteSettings").run();
         print.line("deploying restservices settings");
         command("fakerCo deploy deployRestServicesSettings").run();
-        */
+
     }
 
 
@@ -69,8 +69,6 @@ component {
         command("install").params("commandbox-hostupdater").run();
         print.line("Installing CFConfig");
         command("install").params("commandbox-cfconfig").run();
-        //command("install").params("http://www.purposefultechnologies.com/cbpackages/kimutilities.zip").run();
-        //command("install").params("http://www.purposefultechnologies.com/cbpackages/kimmodelCB.zip").run();
     }
 
     function askForSettings(){

@@ -1,0 +1,54 @@
+{
+    "author":"Dan Card",
+    "bugs":"",
+    "changelog":"",
+    "contributors":[],
+    "dependencies":{},
+    "description":"",
+    "devDependencies":{},
+    "documentation":"",
+    "homepage":"https://github.com/djcard/ITBCBDemo",
+    "ignore":[],
+    "installPaths":{},
+    "instructions":"",
+    "keywords":"CommandBox, CFConfig, IntoTheBox, FakerCo",
+    "type":"commandbox-modules",
+    "license":[
+        {
+            "type":"",
+            "URL":""
+        }
+    ],
+    "location":"",
+    "name":"Sample Build Script Into the Box 2019",
+    "private":false,
+    "projectURL":"",
+    "repository":{
+        "type":"",
+        "URL":""
+    },
+    "scripts":{},
+    "shortDescription":"A commandBox module that acts as a build system for the fake ITBFakerCoSites",
+    "slug":"itbcbdemo",
+    "testbox":{
+        "bundles":"",
+        "directory":"tests.specs",
+        "labels":"",
+        "options":{},
+        "recurse":true,
+        "reporter":"",
+        "runner":[
+            {
+                "default":""
+            }
+        ],
+        "testBundles":"",
+        "testSpecs":"",
+        "testSuites":"",
+        "verbose":true,
+        "watchDelay":500,
+        "watchPaths":"**.cfc"
+    },
+
+    "version":"0.0.1"
+}
