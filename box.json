@@ -24,8 +24,8 @@
     "private":false,
     "projectURL":"",
     "repository":{
-        "type":"",
-        "URL":""
+        "type":"Github",
+        "URL":"https://github.com/djcard/ITBCBDemo.git"
     },
     "scripts":{},
     "shortDescription":"A commandBox module that acts as a build system for the fake ITBFakerCoSites",
