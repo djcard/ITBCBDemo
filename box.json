@@ -29,7 +29,7 @@
     },
     "scripts":{},
     "shortDescription":"A commandBox module that acts as a build system for the fake ITBFakerCoSites",
-    "slug":"itbcbdemo",
+    "slug":"CBSampleBuildScriptIntoTheBox2019",
     "testbox":{
         "bundles":"",
         "directory":"tests.specs",
