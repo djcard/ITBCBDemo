@@ -19,13 +19,13 @@
             "URL":""
         }
     ],
-    "location":"",
+    "location":"forgeboxStorage",
     "name":"Sample Build Script Into the Box 2019",
     "private":false,
     "projectURL":"",
     "repository":{
-        "type":"Github",
-        "URL":"https://github.com/djcard/ITBCBDemo.git"
+        "type":"",
+        "URL":""
     },
     "scripts":{},
     "shortDescription":"A commandBox module that acts as a build system for the fake ITBFakerCoSites",
@@ -49,6 +49,5 @@
         "watchDelay":500,
         "watchPaths":"**.cfc"
     },
-
     "version":"0.0.1"
 }
